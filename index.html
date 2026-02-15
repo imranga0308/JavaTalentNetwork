@@ -98,6 +98,21 @@
             border: 1px solid rgba(129, 137, 149, 0.1); /* Oslo Gray border */
             box-shadow: 0 0 0 1px rgba(20, 35, 51, 0.5), 0 4px 20px rgba(0, 0, 0, 0.3);
         }
+        .art-panel {
+            position: relative;
+            border-radius: 0.75rem;
+            overflow: hidden;
+            border: 1px solid rgba(129, 137, 149, 0.2);
+            box-shadow: 0 12px 48px rgba(0, 0, 0, 0.35);
+            background: #101a28;
+        }
+        .art-panel::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(180deg, rgba(20,35,51,0) 45%, rgba(20,35,51,0.45) 100%);
+            pointer-events: none;
+        }
         
         /* Syntax Highlighting - Adjusted for Blue Theme */
         .code-syntax-keyword { color: #bdae98; } /* Malta */
@@ -121,7 +136,7 @@
     <!-- Navigation -->
     <nav class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 border-b border-[#818995]/10 bg-[#142333]/70 backdrop-blur-xl supports-[backdrop-filter]:bg-[#142333]/60">
         <div class="max-w-6xl mx-auto px-6 h-14 flex items-center justify-between">
-            <a href="#" class="flex items-center gap-2 group">
+            <a href="#top" class="flex items-center gap-2 group">
                 <img src="logo.png" alt="Java Talent Network logo" class="h-8 w-auto rounded-sm border border-[#818995]/20 group-hover:border-[#bdae98]/50 transition-colors">
             </a>
             
@@ -129,6 +144,7 @@
                 <a href="#path" class="text-[11px] font-medium text-[#818995] hover:text-[#bdae98] transition-colors tracking-tight">Path</a>
                 <a href="#mastery" class="text-[11px] font-medium text-[#818995] hover:text-[#bdae98] transition-colors tracking-tight">Mastery</a>
                 <a href="#hiring" class="text-[11px] font-medium text-[#818995] hover:text-[#bdae98] transition-colors tracking-tight">Connect</a>
+                <a href="#founder" class="text-[11px] font-medium text-[#818995] hover:text-[#bdae98] transition-colors tracking-tight">Founder</a>
             </div>
 
             <div class="flex items-center gap-3">
@@ -139,7 +155,7 @@
     </nav>
 
     <!-- Main Content -->
-    <main class="relative pt-32 pb-24">
+    <main id="top" class="relative pt-32 pb-24">
         
         <!-- Central Guide Line -->
         <div class="absolute left-6 md:left-1/2 top-0 bottom-0 w-px beam-vertical -translate-x-1/2 z-0 hidden md:block opacity-30"></div>
@@ -161,7 +177,7 @@
             </h1>
             
             <p class="text-lg md:text-xl text-[#818995] font-light max-w-2xl mx-auto mb-10 leading-relaxed tracking-tight">
-                Structured learning pathways, peer mentorship, and direct hiring visibility in one focused ecosystem for developers and recruiters.
+                A focused ecosystem for Java engineers: structured learning, mentorship-led growth, and hiring visibility that turns effort into real career outcomes.
             </p>
             
             <div class="flex flex-col md:flex-row items-center justify-center gap-3">
@@ -174,6 +190,11 @@
                     <iconify-icon icon="solar:users-group-rounded-linear" width="16"></iconify-icon>
                 </a>
             </div>
+            <div class="mt-12 max-w-3xl mx-auto">
+                <div class="art-panel">
+                    <img src="assets/ascent-structure.png" alt="Career ascent visualization for Java Talent Network" class="w-full h-[340px] md:h-[440px] object-cover">
+                </div>
+            </div>
         </section>
 
         <!-- Product Vision -->
@@ -183,7 +204,7 @@
                     <div>
                         <h3 class="text-xl font-medium tracking-tight text-[#d6d9d9] mb-3">Career Growth Vision</h3>
                         <p class="text-sm text-[#818995] leading-relaxed">
-                            Java Talent Network supports developers at every stage with role-based roadmaps, modern Java learning, mentorship, and hiring outcomes.
+                            Java Talent Network supports developers at every stage with role-based roadmaps, modern Java practices, peer accountability, and trusted hiring outcomes.
                         </p>
                     </div>
                     <div>
@@ -240,20 +261,8 @@
 
             <!-- Right Side Visual -->
             <div class="order-1 md:order-2 md:pl-12">
-                <div class="glass-panel rounded-lg p-6 w-full max-w-md transform transition-transform hover:-translate-y-1 duration-500">
-                    <div class="flex items-center gap-2 mb-4 border-b border-[#818995]/10 pb-2">
-                        <div class="w-2 h-2 rounded-full bg-[#202631] border border-[#818995]/30"></div>
-                        <div class="w-2 h-2 rounded-full bg-[#202631] border border-[#818995]/30"></div>
-                        <span class="ml-auto text-[10px] font-mono text-[#818995]">PaymentService.java</span>
-                    </div>
-                    <pre class="font-mono text-[10px] md:text-xs leading-6 overflow-x-auto"><code><span class="code-syntax-keyword">public record</span> <span class="text-[#bdae98]">Transaction</span>(
-  <span class="code-syntax-str">UUID</span> id, 
-  <span class="code-syntax-str">BigDecimal</span> amount
-) {}
-
-<span class="code-syntax-keyword">var</span> scope = <span class="code-syntax-keyword">new</span> <span class="code-syntax-func">StructuredTaskScope</span>();
-<span class="code-syntax-comment">// Thread-safe by design</span>
-scope.<span class="code-syntax-func">fork</span>(() -&gt; <span class="code-syntax-func">process</span>(tx));</code></pre>
+                <div class="art-panel w-full max-w-md transform transition-transform hover:-translate-y-1 duration-500">
+                    <img src="assets/network-concept.png" alt="Learning path visual representing progressive Java engineering growth" class="w-full h-[430px] object-cover">
                 </div>
             </div>
         </section>
@@ -262,35 +271,8 @@ scope.<span class="code-syntax-func">fork</span>(() -&gt; <span class="code-synt
         <section id="mastery" class="relative z-10 max-w-6xl mx-auto px-6 mb-32 grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-24 items-center">
              <!-- Left Side Visual -->
              <div class="md:text-right md:pr-12">
-                <div class="glass-panel rounded-lg p-1 w-full max-w-md ml-auto relative overflow-hidden group">
-                    <div class="absolute inset-0 bg-gradient-to-tr from-[#bdae98]/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
-                    <div class="bg-[#142333] rounded border border-[#818995]/10 p-6 relative z-10">
-                        <div class="flex items-center justify-between mb-6">
-                            <h4 class="text-xs font-medium text-[#d6d9d9] tracking-tight">Mentorship Session</h4>
-                            <span class="text-[9px] bg-[#bdae98]/10 text-[#bdae98] px-1.5 py-0.5 rounded border border-[#bdae98]/20 tracking-wide uppercase">Active</span>
-                        </div>
-                        <div class="space-y-4">
-                            <!-- Avatar Row 1 -->
-                            <div class="flex items-center gap-3">
-                                <div class="w-7 h-7 rounded bg-[#202631] flex items-center justify-center border border-[#818995]/20 text-[10px] text-[#818995] font-medium">SR</div>
-                                <div class="flex-1">
-                                    <div class="h-1.5 w-24 bg-[#202631] rounded mb-1.5"></div>
-                                    <div class="h-1.5 w-16 bg-[#202631] rounded"></div>
-                                </div>
-                            </div>
-                             <!-- Avatar Row 2 -->
-                             <div class="flex items-center gap-3">
-                                <div class="w-7 h-7 rounded bg-[#d6d9d9] flex items-center justify-center text-[10px] text-[#142333] font-medium">JD</div>
-                                <div class="flex-1 p-2 rounded bg-[#202631] border border-[#818995]/10">
-                                    <p class="text-[10px] text-[#d6d9d9] leading-relaxed">Let's refactor the interface segregation here...</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="mt-6 flex justify-between items-center border-t border-[#818995]/10 pt-4">
-                            <span class="text-[9px] text-[#818995] font-mono tracking-wider">CODE_REVIEW_04</span>
-                            <iconify-icon icon="solar:microphone-2-linear" class="text-[#818995]" width="14"></iconify-icon>
-                        </div>
-                    </div>
+                <div class="art-panel w-full max-w-md ml-auto relative overflow-hidden group">
+                    <img src="assets/mentorship-ascent.png" alt="Community mentorship network visual" class="w-full h-[430px] object-cover">
                 </div>
             </div>
 
@@ -306,7 +288,7 @@ scope.<span class="code-syntax-func">fork</span>(() -&gt; <span class="code-synt
                 </div>
                 <h2 class="text-2xl md:text-3xl font-medium tracking-tight text-[#d6d9d9] mb-4">Signal in the Noise</h2>
                 <p class="text-[#818995] font-light leading-relaxed mb-6 text-sm md:text-base">
-                    Growth requires feedback. Connect with Staff and Principal engineers who review your code, challenge your design choices, and accelerate your path to seniority.
+                    Growth requires community. Learn with senior engineers, get practical feedback, and build confidence through consistent, peer-driven learning loops.
                 </p>
                 <div class="flex flex-wrap gap-2">
                      <span class="text-[10px] font-mono px-2 py-1 rounded border border-[#818995]/20 text-[#818995] hover:text-[#bdae98] hover:border-[#bdae98]/30 transition-colors cursor-default">System Design</span>
@@ -325,7 +307,7 @@ scope.<span class="code-syntax-func">fork</span>(() -&gt; <span class="code-synt
                 </div>
                 <h2 class="text-2xl md:text-3xl font-medium tracking-tight text-[#d6d9d9] mb-4">Verified Mastery</h2>
                 <p class="text-[#818995] font-light leading-relaxed mb-8 text-sm md:text-base">
-                    For Recruiters: Stop filtering keywords. Start hiring verified capabilities. Our talent is assessed on actual implementation, not algorithm puzzles.
+                    For recruiters, we surface capability over buzzwords. For developers, we convert learning effort into visible proof that supports better career moves.
                 </p>
                 <a href="https://www.linkedin.com/company/java-talent-network/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 text-xs text-[#d6d9d9] font-medium border-b border-[#bdae98]/30 pb-0.5 hover:border-[#bdae98] transition-colors">
                     View LinkedIn Talent Signals
@@ -373,9 +355,36 @@ scope.<span class="code-syntax-func">fork</span>(() -&gt; <span class="code-synt
                         </div>
                     </div>
                     
-                    <div class="mt-6 pt-4 border-t border-[#818995]/10 flex gap-3">
-                        <button class="flex-1 py-1.5 rounded border border-[#818995]/30 text-[10px] font-medium text-[#d6d9d9] hover:bg-[#bdae98] hover:text-[#142333] hover:border-[#bdae98] transition-colors">View Projects</button>
-                        <button class="flex-1 py-1.5 rounded bg-[#d6d9d9] text-[#142333] text-[10px] font-medium hover:bg-[#bdae98] transition-colors">Contact</button>
+                    <div class="mt-6 pt-4 border-t border-[#818995]/10 flex flex-wrap gap-2">
+                        <span class="text-[10px] font-mono px-2 py-1 rounded border border-[#818995]/20 text-[#818995]">Verified Skill Signals</span>
+                        <span class="text-[10px] font-mono px-2 py-1 rounded border border-[#818995]/20 text-[#818995]">Hiring-Ready Profiles</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Founder Section -->
+        <section id="founder" class="relative z-10 max-w-6xl mx-auto px-6 mb-24">
+            <div class="glass-panel rounded-xl p-8 md:p-10">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-10 items-center">
+                    <div class="art-panel">
+                        <img src="assets/founder-vision.png" alt="Founder vision visual representing community uplift and growth" class="w-full h-[360px] md:h-[420px] object-cover">
+                    </div>
+                    <div>
+                        <span class="text-[10px] font-mono tracking-[0.2em] text-[#818995] uppercase">Founder Note</span>
+                        <h3 class="text-3xl md:text-4xl font-medium tracking-tight text-[#d6d9d9] mt-3 mb-4">Man Behind the Vision: Rangaswamy</h3>
+                        <p class="text-sm md:text-base text-[#818995] leading-relaxed mb-6">
+                            Java Talent Network is built with one clear purpose: give back to the developer community by making growth practical, structured, and accessible. The mission is to help engineers learn faster, stay relevant, and move into better roles with confidence.
+                        </p>
+                        <div class="flex flex-col sm:flex-row gap-3">
+                            <a href="https://in.linkedin.com/in/rangaswamyh" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-2 px-4 py-2 rounded bg-[#d6d9d9] text-[#142333] text-xs font-semibold hover:bg-[#bdae98] transition-colors">
+                                Connect with Founder
+                                <iconify-icon icon="solar:arrow-right-up-linear" width="14"></iconify-icon>
+                            </a>
+                            <a href="https://www.linkedin.com/company/java-talent-network/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-2 px-4 py-2 rounded border border-[#818995]/30 text-[#d6d9d9] text-xs font-medium hover:bg-[#202631] hover:border-[#bdae98]/40 transition-colors">
+                                Follow Java Talent Network
+                            </a>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -384,7 +393,7 @@ scope.<span class="code-syntax-func">fork</span>(() -&gt; <span class="code-synt
         <!-- Final Call to Action -->
         <section class="relative z-10 max-w-2xl mx-auto px-6 text-center py-24">
             <h2 class="text-2xl md:text-3xl font-medium tracking-tight text-[#d6d9d9] mb-6">The summit is just the beginning.</h2>
-            <p class="text-[#818995] font-light mb-8 text-sm">Join the network where continuous learning becomes part of every developer journey.</p>
+            <p class="text-[#818995] font-light mb-8 text-sm">Join the network where continuous learning, mentorship, and community contribution move careers forward.</p>
             
             <div class="flex flex-col sm:flex-row gap-2 max-w-md mx-auto">
                 <a href="https://www.linkedin.com/company/java-talent-network/" target="_blank" rel="noopener noreferrer" class="flex-1 bg-[#d6d9d9] text-[#142333] font-medium text-xs px-5 py-2.5 rounded hover:bg-[#bdae98] transition-colors whitespace-nowrap">
@@ -403,34 +412,31 @@ scope.<span class="code-syntax-func">fork</span>(() -&gt; <span class="code-synt
     <footer class="border-t border-[#818995]/10 bg-[#142333] py-12 relative z-10">
         <div class="max-w-6xl mx-auto px-6 flex flex-col md:flex-row justify-between items-start md:items-center gap-8">
             <div class="flex flex-col gap-4">
-                <a href="#" class="flex items-center gap-2 group">
-                    <div class="w-4 h-4 border border-[#818995]/20 rounded-[2px] flex items-center justify-center group-hover:border-[#bdae98]/50 transition-colors">
-                        <span class="font-mono text-[8px] font-medium text-[#d6d9d9]">J</span>
-                    </div>
-                    <span class="text-[11px] font-medium tracking-tight text-[#818995] group-hover:text-[#d6d9d9] transition-colors">Java Talent Network</span>
+                <a href="#top" class="flex items-center gap-2 group">
+                    <img src="logo.png" alt="Java Talent Network logo" class="h-8 w-auto rounded-sm border border-[#818995]/20 group-hover:border-[#bdae98]/50 transition-colors">
                 </a>
-                <p class="text-[10px] text-[#818995] max-w-xs leading-relaxed">
+                <p class="text-sm text-[#818995] max-w-xs leading-relaxed">
                     Advancing the craft of Java engineering through structured paths and verified merit.
                 </p>
             </div>
             
             <div class="flex gap-12">
                 <div class="flex flex-col gap-2.5">
-                    <span class="text-[9px] font-semibold text-[#818995] uppercase tracking-widest">Platform</span>
-                    <a href="#" class="text-[10px] text-[#818995] hover:text-[#bdae98] transition-colors">Curriculum</a>
-                    <a href="#" class="text-[10px] text-[#818995] hover:text-[#bdae98] transition-colors">Mentors</a>
-                    <a href="#" class="text-[10px] text-[#818995] hover:text-[#bdae98] transition-colors">Pricing</a>
+                    <span class="text-sm font-semibold text-[#818995] uppercase tracking-widest">Journey</span>
+                    <a href="#path" class="text-sm text-[#818995] hover:text-[#bdae98] transition-colors">Learning Path</a>
+                    <a href="#mastery" class="text-sm text-[#818995] hover:text-[#bdae98] transition-colors">Mentorship</a>
+                    <a href="#hiring" class="text-sm text-[#818995] hover:text-[#bdae98] transition-colors">Hiring</a>
                 </div>
                 <div class="flex flex-col gap-2.5">
-                    <span class="text-[9px] font-semibold text-[#818995] uppercase tracking-widest">Connect</span>
-                    <a href="#" class="text-[10px] text-[#818995] hover:text-[#bdae98] transition-colors">Twitter</a>
-                    <a href="https://www.linkedin.com/company/java-talent-network/" target="_blank" rel="noopener noreferrer" class="text-[10px] text-[#818995] hover:text-[#bdae98] transition-colors">LinkedIn</a>
-                    <a href="#" class="text-[10px] text-[#818995] hover:text-[#bdae98] transition-colors">GitHub</a>
+                    <span class="text-sm font-semibold text-[#818995] uppercase tracking-widest">Connect</span>
+                    <a href="https://www.linkedin.com/company/java-talent-network/" target="_blank" rel="noopener noreferrer" class="text-sm text-[#818995] hover:text-[#bdae98] transition-colors">LinkedIn</a>
+                    <a href="https://in.linkedin.com/company/java-talent-network?trk=public_post_feed-actor-name" target="_blank" rel="noopener noreferrer" class="text-sm text-[#818995] hover:text-[#bdae98] transition-colors">India Route</a>
+                    <a href="https://in.linkedin.com/in/rangaswamyh" target="_blank" rel="noopener noreferrer" class="text-sm text-[#818995] hover:text-[#bdae98] transition-colors">Founder</a>
                 </div>
             </div>
         </div>
         <div class="max-w-6xl mx-auto px-6 mt-12 pt-8 border-t border-[#818995]/10 flex justify-between items-center">
-            <span class="text-[10px] text-[#818995]">© 2023 Java Talent Network. All rights reserved.</span>
+            <span class="text-sm text-[#818995]">© 2026 Java Talent Network. All rights reserved.</span>
             <div class="flex gap-4">
                 <iconify-icon icon="solar:shield-check-linear" class="text-[#818995] hover:text-[#bdae98] transition-colors" width="12"></iconify-icon>
             </div>
